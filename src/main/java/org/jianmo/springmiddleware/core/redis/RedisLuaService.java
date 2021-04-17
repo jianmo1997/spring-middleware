@@ -1,6 +1,7 @@
 package org.jianmo.springmiddleware.core.redis;
 
 import java.util.Collections;
+import java.util.UUID;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,10 +46,13 @@ public class RedisLuaService {
    * @return
    */
   public Boolean tryLockByJedis(String key , String request, int timeout){
+    // 使用uuid保证value的唯一性，防止锁被误释放
+    String uuid = UUID.randomUUID().toString().replaceAll("-" , "");
+    String value = uuid + request;
     SetParams setParams = new SetParams();
     setParams.ex(timeout);
     setParams.nx();
-    String set = jedis.set(key , request , setParams);
+    String set = jedis.set(key , value , setParams);
     return "OK".equals(set);
   }
 
@@ -76,11 +80,14 @@ public class RedisLuaService {
    */
   public Boolean tryLockByRedisTemplate(String key , String request, int timeout){
     return redisTemplate.execute((RedisCallback<Boolean>) redisConnection -> {
+      // 原理同上
+      String uuid = UUID.randomUUID().toString().replaceAll("-" , "");
+      String value = uuid + request;
       JedisCommands jedis = (JedisCommands) redisConnection.getNativeConnection();
       SetParams setParams = new SetParams();
       setParams.ex(timeout);
       setParams.nx();
-      String set = jedis.set(key, request , setParams);
+      String set = jedis.set(key, value , setParams);
       return "OK".equals(set);
     });
   }
