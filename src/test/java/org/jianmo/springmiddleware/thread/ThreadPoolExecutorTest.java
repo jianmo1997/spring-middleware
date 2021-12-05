@@ -15,9 +15,9 @@ public class ThreadPoolExecutorTest {
 
       try {
         String task = "task=" + i;
-        ThreadPoolExecutorDemo.threadPoolExecutor.execute(new ThreadPoolTask(task));
+        ThreadPoolExecutorDemo.threadPoolExecutor.execute(() -> threadPoolExecutorTest.testPool(task));
 
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
       }catch (Exception e){
         e.printStackTrace();
       }
