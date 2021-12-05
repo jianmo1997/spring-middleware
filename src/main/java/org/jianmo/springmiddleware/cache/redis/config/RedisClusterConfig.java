@@ -1,4 +1,4 @@
-package org.jianmo.springmiddleware.core.redis.config;
+package org.jianmo.springmiddleware.cache.redis.config;
 
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;

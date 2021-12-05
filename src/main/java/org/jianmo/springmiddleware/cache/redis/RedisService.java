@@ -1,4 +1,4 @@
-package org.jianmo.springmiddleware.core.redis;
+package org.jianmo.springmiddleware.cache.redis;
 
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package org.jianmo.springmiddleware.core.CacheDemo;
+package org.jianmo.springmiddleware.cache.CacheDemo;
 
 
 import io.netty.util.internal.StringUtil;

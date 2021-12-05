@@ -1,4 +1,4 @@
-package org.jianmo.springmiddleware.core.redis;
+package org.jianmo.springmiddleware.cache.redis;
 
 import java.util.Collections;
 import java.util.UUID;
