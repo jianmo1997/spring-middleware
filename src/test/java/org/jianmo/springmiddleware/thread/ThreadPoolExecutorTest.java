@@ -45,6 +45,10 @@ public class ThreadPoolExecutorTest {
 
   public void testPool(String task){
 
+    if ("task=4".equals(task) || "task=7".equals(task)){
+      throw new RuntimeException("线程池异常了");
+    }
+
     System.out.println(task + "使用的线程池，线程名称" + Thread.currentThread().getName());
   }
 
