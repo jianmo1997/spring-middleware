@@ -9,7 +9,7 @@ public class ThreadPoolExecutorTest {
 
     long currentTimeMillis = System.currentTimeMillis();
 
-    for (int i = 0 ; i <= 10 ; i++){
+    for (int i = 0 ; i <= 20 ; i++){
 
       ThreadPoolExecutorTest threadPoolExecutorTest = new ThreadPoolExecutorTest();
 
@@ -45,11 +45,13 @@ public class ThreadPoolExecutorTest {
 
   public void testPool(String task){
 
-    if ("task=4".equals(task) || "task=7".equals(task)){
-      throw new RuntimeException("线程池异常了");
-    }
-
     System.out.println(task + "使用的线程池，线程名称" + Thread.currentThread().getName());
+
+    try {
+      Thread.sleep(100);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 
 
