@@ -5,7 +5,7 @@ package org.jianmo.springmiddleware.thread;
  *
  *
  */
-public class ThreadInterruptDemo{
+public class ThreadInterruptTest {
 
   public static void main(String[] args) {
     Thread thread = new Thread(() ->{

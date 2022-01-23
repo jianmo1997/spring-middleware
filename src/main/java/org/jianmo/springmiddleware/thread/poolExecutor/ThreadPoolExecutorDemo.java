@@ -18,7 +18,7 @@ public class ThreadPoolExecutorDemo {
 
   public static final ThreadPoolExecutor threadPoolExecutor =
       new ThreadPoolExecutor(3, 10, 60, TimeUnit.SECONDS,
-          new LinkedBlockingQueue<Runnable>(1) , new RejectedExecutionHandler() {
+          new LinkedBlockingQueue<Runnable>(1000) , new RejectedExecutionHandler() {
         @Override
         public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
           log.error("拒绝执行任务,{}" , r.toString());
