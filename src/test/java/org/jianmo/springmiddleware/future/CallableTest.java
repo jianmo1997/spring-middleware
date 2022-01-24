@@ -34,6 +34,12 @@ public class CallableTest {
     // 错误的写法
     CallableTest.listStringDemo(callable);
 
+
+    System.out.println("---------------");
+
+//    // 另一种实现方式
+//    CallableTest.invokeAllTest(callable);
+
   }
 
   /**
@@ -102,6 +108,37 @@ public class CallableTest {
     });
     System.out.println("准备结束listStringDemo");
     ThreadPoolExecutorDemo.getThreadPoolExecutor().shutdownNow();
+  }
+
+
+  /**
+   * invokeAll调用线程List，可以看到也达到了我们想要的效果
+   * 但没用Future的get方法，所以invokeAll不用Future的get方法也会阻塞主线程
+   * @param callable
+   */
+  public static void invokeAllTest(Callable callable){
+
+    List<Callable<String>> list = new ArrayList<>();
+    long startTime = System.currentTimeMillis();
+
+    System.out.println("invokeAllTest startTime" + startTime);
+    // 定义20个Callable,放入list中
+    for (int i = 0 ; i <= 20 ; i ++) {
+      list.add(callable);
+    }
+
+    // 通过invokeAll唤醒所有线程。没有get方也会阻塞流程的哦
+    try {
+      ThreadPoolExecutorDemo.threadPoolExecutor.invokeAll(list);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
+    System.out.println("invokeAllTest endTime" + (System.currentTimeMillis() - startTime));
+
+    System.out.println("准备结束invokeAllTest");
+    ThreadPoolExecutorDemo.threadPoolExecutor.shutdownNow();
+
   }
 
 }
