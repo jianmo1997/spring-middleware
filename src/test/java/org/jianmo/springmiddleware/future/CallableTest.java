@@ -32,7 +32,7 @@ public class CallableTest {
     System.out.println("---------------");
 
     // 错误的写法
-    CallableTest.listStringDemo(callable);
+//    CallableTest.listStringDemo(callable);
 
 
     System.out.println("---------------");
@@ -56,6 +56,7 @@ public class CallableTest {
     for (int i = 0 ; i <= 20 ; i ++){
       System.out.println(i);
       Future<String> submit = ThreadPoolExecutorDemo.threadPoolExecutor.submit(callable);
+
       list.add(submit);
     }
 
@@ -70,7 +71,7 @@ public class CallableTest {
         e.printStackTrace();
       }
     });
-    System.out.println("准备结束listFutureStringDemo");
+    System.out.println("准备结束listFutureStringDemo，总耗时:" + (System.currentTimeMillis() - startTime));
 
     ThreadPoolExecutorDemo.threadPoolExecutor.shutdown();
   }

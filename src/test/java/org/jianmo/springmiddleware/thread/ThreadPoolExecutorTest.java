@@ -43,15 +43,17 @@ public class ThreadPoolExecutorTest {
     }
   }
 
-  public void testPool(String task){
+  public String  testPool(String task){
+    String name = task + "使用的线程池，线程名称" + Thread.currentThread().getName();
 
-    System.out.println(task + "使用的线程池，线程名称" + Thread.currentThread().getName());
+    System.out.println(name);
 
     try {
       Thread.sleep(100);
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
+    return name;
   }
 
 
