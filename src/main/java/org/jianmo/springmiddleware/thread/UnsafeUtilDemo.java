@@ -2,6 +2,10 @@ package org.jianmo.springmiddleware.thread;
 
 
 import java.lang.reflect.Field;
+import java.util.Random;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicLong;
 import sun.misc.Unsafe;
 
 /**
@@ -17,11 +21,9 @@ public class UnsafeUtilDemo {
   // 记录变量state在类TestUnSafe中的偏移量
   static final long stateOffset;
 
-
   private volatile long state = 0;
 
   static {
-
     try {
 
       // 通过反射获取Unsafe的成员变量theUnsafe
