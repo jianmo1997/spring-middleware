@@ -2,6 +2,7 @@ package org.jianmo.springmiddleware.queue;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
+import org.jianmo.springmiddleware.queue.ConcurrentLinkedQueueDemo.Consumer;
 import org.jianmo.springmiddleware.thread.poolExecutor.ThreadPoolExecutorDemo;
 
 /**
@@ -30,9 +31,12 @@ public class LinkedBlockingQueueDemo {
   public static void main(String[] args) {
     ThreadPoolExecutorDemo.getThreadPoolExecutor().submit(new Producer());
 
-    for (int i = 1 ; i <= threadCount ; i++){
-      ThreadPoolExecutorDemo.threadPoolExecutor.submit(new Consumer());
-    }
+//    for (int i = 1 ; i <= threadCount ; i++){
+//      ThreadPoolExecutorDemo.threadPoolExecutor.submit(new Consumer());
+//    }
+
+    Thread thread = new Thread(new Consumer());
+    thread.start();
 
   }
 

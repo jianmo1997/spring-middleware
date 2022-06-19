@@ -32,9 +32,11 @@ public class ConcurrentLinkedQueueDemo {
   public static void main(String[] args) {
     ThreadPoolExecutorDemo.getThreadPoolExecutor().submit(new Producer());
 
-    for (int i = 1 ; i<= threadCount ; i++){
-      ThreadPoolExecutorDemo.threadPoolExecutor.submit(new Consumer());
-    }
+//    for (int i = 1 ; i<= threadCount ; i++){
+//      ThreadPoolExecutorDemo.threadPoolExecutor.submit(new Consumer());
+//    }
+    Thread thread = new Thread(new Consumer());
+    thread.start();
 
     // todo 很纳闷，明明调用了shutdown了，为啥线程还没退出勒
     ThreadPoolExecutorDemo.getThreadPoolExecutor().shutdown();

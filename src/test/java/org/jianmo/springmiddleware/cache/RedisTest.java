@@ -1,5 +1,6 @@
 package org.jianmo.springmiddleware.cache;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ public class RedisTest {
 
 
   public static void main(String[] args) {
-//    HashMap<String, String> map = new HashMap<>();
+    HashMap<String, String> map = new HashMap<>();
 //    map.put("test1", "test1");
 //    map.put("test2", "test2");
 //    map.put("test3", "test2");

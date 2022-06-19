@@ -31,10 +31,10 @@ public class ArrayBlockingQueueDemo {
 
 
   public static void main(String[] args) {
-    ThreadPoolExecutorDemo.getThreadPoolExecutor().submit(new LinkedBlockingQueueDemo.Producer());
+    ThreadPoolExecutorDemo.getThreadPoolExecutor().submit(new ArrayBlockingQueueDemo.Producer());
 
     for (int i = 1 ; i <= threadCount ; i++){
-      ThreadPoolExecutorDemo.threadPoolExecutor.submit(new LinkedBlockingQueueDemo.Consumer());
+      ThreadPoolExecutorDemo.threadPoolExecutor.submit(new ArrayBlockingQueueDemo.Consumer());
     }
   }
 
