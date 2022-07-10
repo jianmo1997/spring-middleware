@@ -2,6 +2,9 @@ package org.jianmo.springmiddleware.design.builder;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * 建造者模式测试类
+ */
 public class BuilderTest {
 
   @Test

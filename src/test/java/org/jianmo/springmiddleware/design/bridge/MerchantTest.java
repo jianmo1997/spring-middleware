@@ -1,5 +1,8 @@
 package org.jianmo.springmiddleware.design.bridge;
 
+/**
+ * 桥接模式测试类
+ */
 public class MerchantTest {
 
   public static void main(String[] args) {

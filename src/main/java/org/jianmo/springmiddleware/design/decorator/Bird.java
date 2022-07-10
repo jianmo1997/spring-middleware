@@ -1,17 +1,16 @@
 package org.jianmo.springmiddleware.design.decorator;
 
-/**
- * 鱼
- */
-public class Fish extends Change{
+public class Bird extends Change{
 
-  public Fish(TheGreatestSage theGreatestSage) {
+  public Bird(TheGreatestSage theGreatestSage) {
     super(theGreatestSage);
   }
 
   @Override
   public void move() {
+
     super.move();
-    System.out.println("fish bird move");
+
+    System.out.println("change bird move");
   }
 }

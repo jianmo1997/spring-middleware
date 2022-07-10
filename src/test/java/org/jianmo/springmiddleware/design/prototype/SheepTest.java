@@ -1,5 +1,8 @@
 package org.jianmo.springmiddleware.design.prototype;
 
+/**
+ * 原型模式测试类
+ */
 public class SheepTest {
 
   public static void main(String[] args) throws CloneNotSupportedException {

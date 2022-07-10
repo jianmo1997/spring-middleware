@@ -5,6 +5,9 @@ import org.jianmo.springmiddleware.design.factory.workshop.ICacheAdapter;
 import org.jianmo.springmiddleware.design.factory.workshop.impl.EGMCacheAdapter;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 抽象工厂
+ */
 public class ApiTest {
 
   @Test
